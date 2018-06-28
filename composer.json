@@ -1,0 +1,43 @@
+{
+    "name": "kunicmarko/graphql-test",
+    "type": "library",
+    "description": "GraphQL Test Cases",
+    "keywords": [
+        "graphql",
+        "graphql-test",
+        "symfony",
+        "laravel",
+        "lumen"
+    ],
+    "homepage": "https://github.com/kunicmarko20/graphql-test",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marko Kunic",
+            "email": "kunicmarko20@gmail.com",
+            "homepage": "https://twitter.com/kunicmarko20"
+        }
+    ],
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "laravel/laravel": "^5.6",
+        "laravel/lumen-framework": "^5.6",
+        "symfony/browser-kit": "^3.4 || ^4.0 || ^4.1",
+        "symfony/framework-bundle": "^3.4 || ^4.0 || ^4.1"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "KunicMarko\\GraphQLTest\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KunicMarko\\GraphQLTest\\Tests\\": "tests/"
+        }
+    }
+}

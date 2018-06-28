@@ -1,0 +1,47 @@
+<?php
+
+namespace KunicMarko\GraphQLTest;
+
+/**
+ * @internal
+ *
+ * @author Marko Kunic <kunicmarko20@gmail.com>
+ */
+trait TestCaseTrait
+{
+    protected static $endpoint = '/graphql';
+
+    /**
+     * @var array
+     */
+    private $headers = [];
+
+    public function query(QueryInterface $query, array $files = [], array $headers = [])
+    {
+        return $this->call(
+            'POST',
+            static::$endpoint,
+            ['query' => $query()],
+            [],
+            $files,
+            array_merge($headers, $this->headers)
+        );
+    }
+
+    public function mutation(MutationInterface $mutation, array $files = [], array $headers = [])
+    {
+        return $this->call(
+            'POST',
+            static::$endpoint,
+            ['query' => $mutation()],
+            [],
+            $files,
+            array_merge($headers, $this->headers)
+        );
+    }
+
+    public function setDefaultHeaders(array $headers): void
+    {
+        $this->headers = $headers;
+    }
+}
