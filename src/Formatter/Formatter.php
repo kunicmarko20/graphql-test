@@ -2,6 +2,7 @@
 
 namespace KunicMarko\GraphQLTest\Formatter;
 
+use KunicMarko\GraphQLTest\Type;
 use function is_array;
 use function is_string;
 
@@ -37,6 +38,10 @@ abstract class Formatter implements FormatterInterface
             return sprintf($this->getChildArrayFormat(), $identifier, implode($this->getImplodeGlue(), $items));
         }
 
+        if ($value instanceof Type) {
+            return sprintf($this->getChildTypeFormat(), $identifier, (string) $value);
+        }
+
         if (is_string($value)) {
             return sprintf($this->getChildStringFormat(), $identifier, $value);
         }
@@ -47,6 +52,7 @@ abstract class Formatter implements FormatterInterface
     abstract public function getMainFormat(): string;
     abstract public function getImplodeGlue(): string;
     abstract public function getChildArrayFormat(): string;
+    abstract public function getChildTypeFormat(): string;
     abstract public function getChildStringFormat(): string;
     abstract public function getChildDefaultFormat(): string;
 }

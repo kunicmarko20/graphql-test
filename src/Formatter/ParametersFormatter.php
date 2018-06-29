@@ -22,13 +22,18 @@ final class ParametersFormatter extends Formatter
         return '"%s {%s} \n"';
     }
 
+    public function getChildTypeFormat(): string
+    {
+        return $this->getChildDefaultFormat();
+    }
+
     public function getChildStringFormat(): string
     {
-        return '%s: "%s",';
+        return '%s: "%s"';
     }
 
     public function getChildDefaultFormat(): string
     {
-        return '%s: %s,';
+        return '%s: %s';
     }
 }

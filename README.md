@@ -60,7 +60,7 @@ There is a helper method that allows you to preset headers:
 ```php
 use KunicMarko\GraphQLTest\Bridge\Symfony\TestCase;
 
-class UserTest extends TestCase
+class SettingsTest extends TestCase
 {
     protected function setUp()
     {
@@ -80,7 +80,7 @@ class UserTest extends TestCase
 use KunicMarko\GraphQLTest\Bridge\Symfony\TestCase;
 use KunicMarko\GraphQLTest\Query;
 
-class UserQueryTest extends TestCase
+class SettingsQueryTest extends TestCase
 {
     public static $endpoint = '/';
 
@@ -121,7 +121,7 @@ class UserQueryTest extends TestCase
 use KunicMarko\GraphQLTest\Bridge\Symfony\TestCase;
 use KunicMarko\GraphQLTest\Mutation;
 
-class UserMutationTest extends TestCase
+class SettingsMutationTest extends TestCase
 {
     public static $endpoint = '/';
 
@@ -158,3 +158,39 @@ class UserMutationTest extends TestCase
 * name of mutation (mandatory)
 * parameters (optional)
 * fields (optional)
+
+If you have a custom type as an argument you will have to pass it as `KunicMarko\GraphQLTest\Type`
+to avoid wrapping it in quotes.
+
+```php
+use KunicMarko\GraphQLTest\Bridge\Symfony\TestCase;
+use KunicMarko\GraphQLTest\Mutation;
+use KunicMarko\GraphQLTest\Type;
+
+class UserMutationTest extends TestCase
+{
+    //...
+    public function testUserMutation(): void
+    {
+        $mutation = $this->mutation(
+            new Mutation(
+                'createUser',
+                [
+                    
+                    'username' => 'kunicmarko20',
+
+                    // In this case salutation is an EnumType
+                    'salutation' => new Type('Mr'),
+                    //..
+                ],
+                [
+                    'username',
+                    'salutation',
+                ],
+            )
+        );
+        
+        //Fetch response and do asserts
+    }
+}
+```
