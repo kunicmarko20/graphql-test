@@ -1,11 +1,11 @@
 <?php
 
-namespace KunicMarko\GraphQLTest;
+namespace KunicMarko\GraphQLTest\Type;
 
 /**
  * @author Marko Kunic <kunicmarko20@gmail.com>
  */
-final class Type
+final class EnumType implements TypeInterface
 {
     /**
      * @var string
@@ -17,7 +17,7 @@ final class Type
         $this->value = $value;
     }
 
-    public function __toString(): string
+    public function __invoke(): string
     {
         return $this->value;
     }

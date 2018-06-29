@@ -1,6 +1,6 @@
 <?php
 
-namespace KunicMarko\GraphQLTest;
+namespace KunicMarko\GraphQLTest\Operation;
 
 /**
  * @internal

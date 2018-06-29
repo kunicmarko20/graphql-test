@@ -2,8 +2,8 @@
 
 namespace KunicMarko\GraphQLTest\Bridge\Lumen;
 
-use KunicMarko\GraphQLTest\TestCaseTrait;
 use Laravel\Lumen\Testing\TestCase as BaseTestCase;
+use KunicMarko\GraphQLTest\Operation\TestCaseTrait;
 
 /**
  * @author Marko Kunic <kunicmarko20@gmail.com>

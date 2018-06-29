@@ -2,8 +2,8 @@
 
 namespace KunicMarko\GraphQLTest\Bridge\Symfony;
 
-use KunicMarko\GraphQLTest\TestCaseTrait;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use KunicMarko\GraphQLTest\Operation\TestCaseTrait;
 
 /**
  * @author Marko Kunic <kunicmarko20@gmail.com>

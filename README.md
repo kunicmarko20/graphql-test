@@ -78,7 +78,7 @@ class SettingsTest extends TestCase
 
 ```php
 use KunicMarko\GraphQLTest\Bridge\Symfony\TestCase;
-use KunicMarko\GraphQLTest\Query;
+use KunicMarko\GraphQLTest\Operation\Query;
 
 class SettingsQueryTest extends TestCase
 {
@@ -109,7 +109,7 @@ class SettingsQueryTest extends TestCase
 }
 ```
 
-`KunicMarko\GraphQLTest\Query` construct accepts 3 arguments:
+`KunicMarko\GraphQLTest\Operation\Query` construct accepts 3 arguments:
 
 * name of query (mandatory)
 * parameters (optional)
@@ -119,7 +119,7 @@ class SettingsQueryTest extends TestCase
 
 ```php
 use KunicMarko\GraphQLTest\Bridge\Symfony\TestCase;
-use KunicMarko\GraphQLTest\Mutation;
+use KunicMarko\GraphQLTest\Operation\Mutation;
 
 class SettingsMutationTest extends TestCase
 {
@@ -153,19 +153,19 @@ class SettingsMutationTest extends TestCase
 }
 ```
 
-`KunicMarko\GraphQLTest\Mutation` construct accepts 3 arguments:
+`KunicMarko\GraphQLTest\Operation\Mutation` construct accepts 3 arguments:
 
 * name of mutation (mandatory)
 * parameters (optional)
 * fields (optional)
 
-If you have a custom type as an argument you will have to pass it as `KunicMarko\GraphQLTest\Type`
-to avoid wrapping it in quotes.
+If you have a EnumType or BooleanType as argument you can pass it as following:
 
 ```php
 use KunicMarko\GraphQLTest\Bridge\Symfony\TestCase;
-use KunicMarko\GraphQLTest\Mutation;
-use KunicMarko\GraphQLTest\Type;
+use KunicMarko\GraphQLTest\Operation\Mutation;
+use KunicMarko\GraphQLTest\Type\EnumType;
+use KunicMarko\GraphQLTest\Type\BooleanType;
 
 class UserMutationTest extends TestCase
 {
@@ -178,9 +178,8 @@ class UserMutationTest extends TestCase
                 [
                     
                     'username' => 'kunicmarko20',
-
-                    // In this case salutation is an EnumType
-                    'salutation' => new Type('Mr'),
+                    'salutation' => new EnumType('Mr'),
+                    'enabled' => new BooleanType(true),
                     //..
                 ],
                 [
@@ -194,3 +193,6 @@ class UserMutationTest extends TestCase
     }
 }
 ```
+
+Also, if you need a custom type you can always extend `KunicMarko\GraphQLTest\TypeTypeInterface`
+and use your own Type instead.

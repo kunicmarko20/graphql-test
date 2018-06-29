@@ -1,14 +1,14 @@
 <?php
 
-namespace KunicMarko\GraphQLTest;
+namespace KunicMarko\GraphQLTest\Type;
 
 /**
  * @author Marko Kunic <kunicmarko20@gmail.com>
  */
-interface MutationInterface
+interface TypeInterface
 {
     /**
-     * Returns formatted Mutation body
+     * Returns Type in format needed for GraphQL
      */
     public function __invoke(): string;
 }

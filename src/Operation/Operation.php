@@ -1,6 +1,6 @@
 <?php
 
-namespace KunicMarko\GraphQLTest;
+namespace KunicMarko\GraphQLTest\Operation;
 
 use KunicMarko\GraphQLTest\Formatter\FieldsFormatter;
 use KunicMarko\GraphQLTest\Formatter\FormatterInterface;

@@ -2,7 +2,7 @@
 
 namespace KunicMarko\GraphQLTest\Formatter;
 
-use KunicMarko\GraphQLTest\Type;
+use KunicMarko\GraphQLTest\Type\TypeInterface;
 use function is_array;
 use function is_string;
 
@@ -38,8 +38,8 @@ abstract class Formatter implements FormatterInterface
             return sprintf($this->getChildArrayFormat(), $identifier, implode($this->getImplodeGlue(), $items));
         }
 
-        if ($value instanceof Type) {
-            return sprintf($this->getChildTypeFormat(), $identifier, (string) $value);
+        if ($value instanceof TypeInterface) {
+            return sprintf($this->getChildTypeFormat(), $identifier, $value());
         }
 
         if (is_string($value)) {
