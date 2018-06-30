@@ -22,11 +22,6 @@ final class FieldsFormatter extends Formatter
         return "%s {%s}\n";
     }
 
-    public function getChildTypeFormat(): string
-    {
-        return $this->getChildDefaultFormat();
-    }
-
     public function getChildStringFormat(): string
     {
         return $this->getChildDefaultFormat();

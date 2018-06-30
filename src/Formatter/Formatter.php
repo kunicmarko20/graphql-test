@@ -39,7 +39,7 @@ abstract class Formatter implements FormatterInterface
         }
 
         if ($value instanceof TypeInterface) {
-            return sprintf($this->getChildTypeFormat(), $identifier, $value());
+            return $value($identifier);
         }
 
         if (is_string($value)) {
@@ -52,7 +52,6 @@ abstract class Formatter implements FormatterInterface
     abstract public function getMainFormat(): string;
     abstract public function getImplodeGlue(): string;
     abstract public function getChildArrayFormat(): string;
-    abstract public function getChildTypeFormat(): string;
     abstract public function getChildStringFormat(): string;
     abstract public function getChildDefaultFormat(): string;
 }

@@ -159,13 +159,14 @@ class SettingsMutationTest extends TestCase
 * parameters (optional)
 * fields (optional)
 
-If you have a EnumType or BooleanType as argument you can pass it as following:
+If you have a Enum, Boolean or Array as an argument you can pass it as following:
 
 ```php
 use KunicMarko\GraphQLTest\Bridge\Symfony\TestCase;
 use KunicMarko\GraphQLTest\Operation\Mutation;
 use KunicMarko\GraphQLTest\Type\EnumType;
 use KunicMarko\GraphQLTest\Type\BooleanType;
+use KunicMarko\GraphQLTest\Type\ArrayType;
 
 class UserMutationTest extends TestCase
 {
@@ -180,6 +181,7 @@ class UserMutationTest extends TestCase
                     'username' => 'kunicmarko20',
                     'salutation' => new EnumType('Mr'),
                     'enabled' => new BooleanType(true),
+                    'roles' => new ArrayType(['ROLE_ADMIN', 'ROLE_TEST']),
                     //..
                 ],
                 [

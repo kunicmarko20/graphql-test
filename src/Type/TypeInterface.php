@@ -10,5 +10,5 @@ interface TypeInterface
     /**
      * Returns Type in format needed for GraphQL
      */
-    public function __invoke(): string;
+    public function __invoke($identifier): string;
 }

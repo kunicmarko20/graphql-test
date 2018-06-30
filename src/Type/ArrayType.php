@@ -5,20 +5,20 @@ namespace KunicMarko\GraphQLTest\Type;
 /**
  * @author Marko Kunic <kunicmarko20@gmail.com>
  */
-final class EnumType implements TypeInterface
+final class ArrayType implements TypeInterface
 {
     /**
-     * @var string
+     * @var array
      */
     private $value;
 
-    public function __construct(string $value)
+    public function __construct(array $value)
     {
         $this->value = $value;
     }
 
     public function __invoke($identifier): string
     {
-        return $identifier . ':' .$this->value;
+        return sprintf('%s: ["%s"]', $identifier, implode('","', $this->value));
     }
 }

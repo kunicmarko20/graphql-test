@@ -17,8 +17,8 @@ final class BooleanType implements TypeInterface
         $this->value = $value ? 'true' : 'false';
     }
 
-    public function __invoke(): string
+    public function __invoke($identifier): string
     {
-        return $this->value;
+        return $identifier . ':' .$this->value;
     }
 }
