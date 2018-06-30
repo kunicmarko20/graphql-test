@@ -19,7 +19,7 @@ Documentation
 **1.**  Add dependency with composer
 
 ```bash
-composer require kunicmarko/kunicmarko/graphql-test
+composer require --dev kunicmarko/kunicmarko/graphql-test
 ```
 
 > If you are using Symfony you will have to install "symfony/browser-kit".
@@ -194,5 +194,5 @@ class UserMutationTest extends TestCase
 }
 ```
 
-Also, if you need a custom type you can always extend `KunicMarko\GraphQLTest\TypeTypeInterface`
+Also, if you need a custom type you can always extend `KunicMarko\GraphQLTest\Type\TypeInterface`
 and use your own Type instead.

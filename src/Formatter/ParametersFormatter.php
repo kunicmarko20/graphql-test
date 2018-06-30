@@ -19,7 +19,7 @@ final class ParametersFormatter extends Formatter
 
     public function getChildArrayFormat(): string
     {
-        return '"%s {%s} \n"';
+        return "%s: {%s} \n";
     }
 
     public function getChildTypeFormat(): string
