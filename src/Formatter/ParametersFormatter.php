@@ -9,7 +9,7 @@ final class ParametersFormatter extends Formatter
 {
     public function getMainFormat(): string
     {
-        return '(%s)';
+        return '(%s) ';
     }
 
     public function getImplodeGlue(): string
@@ -19,7 +19,7 @@ final class ParametersFormatter extends Formatter
 
     public function getChildArrayFormat(): string
     {
-        return "%s: {%s} \n";
+        return '%s: {%s}';
     }
 
     public function getChildStringFormat(): string

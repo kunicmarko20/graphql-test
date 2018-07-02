@@ -19,6 +19,6 @@ final class EnumType implements TypeInterface
 
     public function __invoke($identifier): string
     {
-        return $identifier . ':' .$this->value;
+        return $identifier . ': ' .$this->value;
     }
 }

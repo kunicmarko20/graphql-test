@@ -55,8 +55,7 @@ abstract class Operation
     {
         return <<<GQL
 {$this->getOperationName()} {
-  $this->name {$this->invokeFormatter('parameters', $this->parameters)} 
-  {$this->invokeFormatter('fields', $this->fields)}
+  $this->name {$this->invokeFormatter('parameters', $this->parameters)}{$this->invokeFormatter('fields', $this->fields)}
 }
 GQL;
     }

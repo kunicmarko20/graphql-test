@@ -9,7 +9,7 @@ final class FieldsFormatter extends Formatter
 {
     public function getMainFormat(): string
     {
-        return '{%s}';
+        return "{\n%s\n}";
     }
 
     public function getImplodeGlue(): string
@@ -19,7 +19,7 @@ final class FieldsFormatter extends Formatter
 
     public function getChildArrayFormat(): string
     {
-        return "%s {%s}\n";
+        return "%s {\n%s\n}";
     }
 
     public function getChildStringFormat(): string
@@ -29,6 +29,6 @@ final class FieldsFormatter extends Formatter
 
     public function getChildDefaultFormat(): string
     {
-        return '%2$s ' . "\n";
+        return '%2$s';
     }
 }

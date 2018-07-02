@@ -1,6 +1,9 @@
 <?php
 
-namespace KunicMarko\GraphQLTest\Operation;
+namespace KunicMarko\GraphQLTest\Bridge;
+
+use KunicMarko\GraphQLTest\Operation\MutationInterface;
+use KunicMarko\GraphQLTest\Operation\QueryInterface;
 
 /**
  * @internal
