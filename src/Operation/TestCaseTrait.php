@@ -24,7 +24,7 @@ trait TestCaseTrait
             ['query' => $query()],
             [],
             $files,
-            array_merge($headers, $this->headers)
+            array_merge($this->headers, $headers)
         );
     }
 
@@ -36,12 +36,17 @@ trait TestCaseTrait
             ['query' => $mutation()],
             [],
             $files,
-            array_merge($headers, $this->headers)
+            array_merge($this->headers, $headers)
         );
     }
 
     public function setDefaultHeaders(array $headers): void
     {
         $this->headers = $headers;
+    }
+
+    public function addDefaultHeader(string $key, $value): void
+    {
+        $this->headers[$key] = $value;
     }
 }
