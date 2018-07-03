@@ -32,7 +32,7 @@ class TestCase extends WebTestCase
             $uri,
             $parameters,
             $files,
-            array_merge($headers, $this->headers)
+            $headers
         );
 
         return $client;

@@ -10,8 +10,9 @@ class EnumTypeTest extends TestCase
     /**
      * @dataProvider invokeData
      */
-    public function testInvoke(EnumType $enumType, string $identifier, string $expected)
+    public function testInvoke(EnumType $enumType, string $value, string $identifier, string $expected)
     {
+        $this->assertAttributeEquals($value, 'value', $enumType);
         $this->assertSame($expected, $enumType($identifier));
     }
 
@@ -20,11 +21,13 @@ class EnumTypeTest extends TestCase
         return [
             [
                 new EnumType('someValue'),
+                'someValue',
                 'enum',
                 'enum: someValue'
             ],
             [
                 new EnumType('enum'),
+                'enum',
                 'fake',
                 'fake: enum'
             ],
