@@ -12,7 +12,8 @@ class EnumTypeTest extends TestCase
      */
     public function testInvoke(EnumType $enumType, string $value, string $identifier, string $expected)
     {
-        $this->assertAttributeEquals($value, 'value', $enumType);
+        $this->assertAttributeSame($value, 'value', $enumType);
+        $this->assertAttributeInternalType('string', 'value', $enumType);
         $this->assertSame($expected, $enumType($identifier));
     }
 

@@ -19,25 +19,25 @@ trait TestCaseTrait
      */
     private $headers = [];
 
-    public function query(QueryInterface $query, array $files = [], array $headers = [])
+    public function query(QueryInterface $query, array $files = [], array $headers = [], array $cookies = [])
     {
         return $this->call(
             'POST',
             static::$endpoint,
             ['query' => $query()],
-            [],
+            $cookies,
             $files,
             array_merge($this->headers, $headers)
         );
     }
 
-    public function mutation(MutationInterface $mutation, array $files = [], array $headers = [])
+    public function mutation(MutationInterface $mutation, array $files = [], array $headers = [], array $cookies = [])
     {
         return $this->call(
             'POST',
             static::$endpoint,
             ['query' => $mutation()],
-            [],
+            $cookies,
             $files,
             array_merge($this->headers, $headers)
         );

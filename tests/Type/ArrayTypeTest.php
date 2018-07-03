@@ -12,7 +12,8 @@ class ArrayTypeTest extends TestCase
      */
     public function testInvoke(ArrayType $arrayType, array $value, string $identifier, string $expected)
     {
-        $this->assertAttributeEquals($value, 'value', $arrayType);
+        $this->assertAttributeSame($value, 'value', $arrayType);
+        $this->assertAttributeInternalType('array', 'value', $arrayType);
         $this->assertSame($expected, $arrayType($identifier));
     }
 
