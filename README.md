@@ -26,7 +26,7 @@ Documentation
 **1.**  Add dependency with composer
 
 ```bash
-composer require --dev kunicmarko/kunicmarko/graphql-test
+composer require --dev kunicmarko/graphql-test
 ```
 
 > If you are using Symfony you will have to install "symfony/browser-kit".
