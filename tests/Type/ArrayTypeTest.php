@@ -10,21 +10,23 @@ class ArrayTypeTest extends TestCase
     /**
      * @dataProvider invokeData
      */
-    public function testInvoke(ArrayType $arrayType, array $value, string $identifier, string $expected)
+    public function testInvoke(array $values, string $identifier, string $expected)
     {
-        $this->assertAttributeSame($value, 'value', $arrayType);
-        $this->assertAttributeInternalType('array', 'value', $arrayType);
-        $this->assertSame($expected, $arrayType($identifier));
+        $this->assertSame($expected, (new ArrayType($values))($identifier));
     }
 
     public function invokeData(): array
     {
         return [
             [
-                new ArrayType($value = ['one', 'two', '3']),
-                $value,
+                ['one', 'two', '3'],
                 'array',
                 'array: ["one","two","3"]'
+            ],
+            [
+                [],
+                'array2',
+                'array2: []'
             ],
         ];
     }

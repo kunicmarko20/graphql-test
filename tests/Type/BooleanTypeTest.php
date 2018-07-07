@@ -10,25 +10,21 @@ class BooleanTypeTest extends TestCase
     /**
      * @dataProvider invokeData
      */
-    public function testInvoke(BooleanType $booleanType, string $value, string $identifier, string $expected)
+    public function testInvoke(bool $value, string $identifier, string $expected)
     {
-        $this->assertAttributeSame($value, 'value', $booleanType);
-        $this->assertAttributeInternalType('string', 'value', $booleanType);
-        $this->assertSame($expected, $booleanType($identifier));
+        $this->assertSame($expected, (new BooleanType($value))($identifier));
     }
 
     public function invokeData(): array
     {
         return [
             [
-                new BooleanType(true),
-                'true',
+                true,
                 'bool',
                 'bool: true'
             ],
             [
-                new BooleanType(false),
-                'false',
+                false,
                 'fake',
                 'fake: false'
             ],
