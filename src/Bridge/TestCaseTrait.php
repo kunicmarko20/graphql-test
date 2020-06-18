@@ -13,6 +13,8 @@ use KunicMarko\GraphQLTest\Operation\QueryInterface;
 trait TestCaseTrait
 {
     protected static $endpoint = '/graphql';
+    
+    protected static $method = 'POST';
 
     /**
      * @var array
@@ -22,7 +24,7 @@ trait TestCaseTrait
     public function query(QueryInterface $query, array $files = [], array $headers = [], array $cookies = [])
     {
         return $this->call(
-            'POST',
+            static::$method,
             static::$endpoint,
             ['query' => $query()],
             $cookies,
@@ -34,7 +36,7 @@ trait TestCaseTrait
     public function mutation(MutationInterface $mutation, array $files = [], array $headers = [], array $cookies = [])
     {
         return $this->call(
-            'POST',
+            static::$method,
             static::$endpoint,
             ['query' => $mutation()],
             $cookies,
